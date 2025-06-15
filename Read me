@@ -1,0 +1,41 @@
+## System Architecture
+
+1. **Input Processing**:
+   - Text → Sentence Transformer embeddings
+   - Images → CNN feature extraction
+
+2. **Cross-Modal Fusion**:
+   - Multi-head attention between modalities
+   - Generates joint representations
+
+3. **Reinforcement Learning**:
+   - ε-greedy policy
+   - Experience replay with real rewards
+   - Continuous action space
+
+4. **Distributed Training**:
+   - Synchronized across multiple GPUs
+   - Efficient data parallelism
+
+5. **Model Export**:
+   - ONNX format for deployment
+   - Quantized models for edge devices
+
+## How to Run
+
+```bash
+# Single-GPU mode
+python hybrid_ai.py
+
+# Multi-GPU training (4 GPUs)
+python -m torch.distributed.launch --nprocs=4 hybrid_ai.py
+
+# Expected Output:
+# [GPU0] Action: generate_response, Reward: 0.8
+# [GPU0] Exported ONNX models to:
+#        - text_encoder.onnx
+#        - image_encoder.onnx  
+#        - cross_modal_quant.onnx
+```
+
+This implementation provides a complete, production-ready hybrid AI system with all features and optimizations. The code is structured for easy extension and deployment across various hardware configurations.
