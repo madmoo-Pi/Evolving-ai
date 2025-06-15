@@ -1,0 +1,12 @@
+# Single-GPU mode
+python hybrid_ai.py
+
+# Multi-GPU training (4 GPUs)
+python -m torch.distributed.launch --nprocs=4 hybrid_ai.py
+
+# Expected Output:
+# [GPU0] Action: generate_response, Reward: 0.8
+# [GPU0] Exported ONNX models to:
+#        - text_encoder.onnx
+#        - image_encoder.onnx  
+#        - cross_modal_quant.onnx
