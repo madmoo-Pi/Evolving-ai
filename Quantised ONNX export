@@ -1,0 +1,5 @@
+ModelExporter.export_onnx(
+    quant_model,
+    (text_input, image_input),
+    "quantized_model.onnx"
+)
