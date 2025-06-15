@@ -1,0 +1,3 @@
+if world_size > 1:
+    setup(rank, world_size)
+    self.cross_modal = DDP(self.cross_modal.to(rank), device_ids=[rank])
